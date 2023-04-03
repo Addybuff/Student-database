@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1 Edit Student
+  form(method="POST", action=`/students/${student.id}?_method=PUT`)
+    label(for="name") Name:
+    input(type="text", name="name", id="name", value=student.name)
+    label(for="age") Age:
+    input(type="number", name="age", id="age", value=student.age)
+    button(type="submit") Update Student
+  a(href="/students") Cancel

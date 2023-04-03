@@ -21,3 +21,16 @@ const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
+const express = require('express');
+const app = express();
+const studentsRouter = require('./routes/students');
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+app.use('/students', studentsRouter);
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});

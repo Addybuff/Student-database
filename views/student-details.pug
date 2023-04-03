@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1 #{student.name}
+  p Student ID: #{student.id}
+  p Age: #{student.age}
+  a(href=`/students/${student.id}/edit`) Edit
+  form(method="POST", action=`/students/${student.id}?_method=DELETE`)
+    button(type="submit") Delete
+  a(href="/students") Back to list

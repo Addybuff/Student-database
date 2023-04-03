@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1 List of Students
+  form(method="GET", action="/students/search")
+    input(type="text", name="search", placeholder="Search for a student")
+    button(type="submit") Search
+  ul
+    each student in students
+      li
+        a(href=`/students/${student.id}`) #{student.name}
+  a(href="/students/new") Add New Student
