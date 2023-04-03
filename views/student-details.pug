@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1 #{student.name}
+  dl
+    dt Student ID:
+    dd #{student.id}
+    dt Age:
+    dd #{student.age}
+  a.btn.btn-warning(href=`/students/${student.id}/edit`) Edit
+  form(method="POST", action=`/students/${student.id}?_method=DELETE`)
+    button.btn.btn-danger(type="submit") Delete
+  a.btn.btn-secondary(href="/students") Back to list

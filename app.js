@@ -1,9 +1,6 @@
 const express = require('express');
-const path = require('path');
 const app = express();
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-
+const path = require('path');
 
 // Set the view engine to use Pug
 app.set('view engine', 'pug');
@@ -11,6 +8,10 @@ app.set('views', path.join(__dirname, 'views'));
 
 // Serve static files from the 'public' folder
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 // Routes
 const indexRouter = require('./routes/index');

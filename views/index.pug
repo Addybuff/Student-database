@@ -1,4 +1,14 @@
 extends layout
 
 block content
-  h1 Welcome to the Student Database
+  h1 List of Students
+  form(method="GET", action="/students/search")
+    .input-group.mb-3
+      input.form-control(type="text", name="search", placeholder="Search for a student")
+      .input-group-append
+        button.btn.btn-outline-secondary(type="submit") Search
+  ul.list-group
+    each student in students
+      li.list-group-item
+        a(href=`/students/${student.id}`) #{student.name}
+  a.btn.btn-primary(href="/students/new") Add New Student

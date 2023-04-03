@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1 Add New Student
+  form(method="POST", action="/students")
+    .form-group
+      label(for="name") Name:
+      input.form-control(type="text", name="name", id="name")
+    .form-group
+      label(for="age") Age:
+      input.form-control(type="number", name="age", id="age")
+    button.btn.btn-primary(type="submit") Add Student
+  a.btn.btn-secondary(href="/students") Cancel
